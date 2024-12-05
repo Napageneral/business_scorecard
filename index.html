@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Business Scorecard</title>
+    <style>
+        body { 
+            font-family: Arial, sans-serif; 
+            margin: 20px 40px 40px 40px;
+            padding: 0;
+        }
+        .header {
+            display: flex;
+            border: 1px solid #000;
+            margin-bottom: 40px;
+        }
+        .header-title {
+            width: 200px;
+            padding: 8px 16px;
+            border-right: 1px solid #000;
+            font-weight: bold;
+        }
+        .header-input {
+            flex-grow: 1;
+            padding: 8px;
+        }
+        .section-title {
+            font-weight: bold;
+            margin-bottom: 15px;
+        }
+        .content-grid {
+            display: grid;
+            grid-template-columns: 30px 250px 400px auto;
+            gap: 10px;
+            margin-bottom: 10px;
+        }
+        .vam-container {
+            position: absolute;
+            width: 400px;
+            left: 50%;
+            transform: translateX(-50%);
+            margin-top: -40px;
+        }
+        .vam-header {
+            border: 1px solid #000;
+            text-align: center;
+            padding: 5px;
+            margin-bottom: 5px;
+        }
+        .vam-columns {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            border: 1px solid #000;
+        }
+        .vam-column {
+            padding: 5px;
+            text-align: center;
+        }
+        .vam-column:first-child {
+            border-right: 1px solid #000;
+        }
+        .input-pair {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 5px;
+        }
+        .input-box {
+            border: 1px solid #000;
+            height: 25px;
+        }
+        input {
+            width: 100%;
+            height: 100%;
+            border: none;
+            padding: 0 5px;
+            box-sizing: border-box;
+        }
+        .total-row {
+            font-style: italic;
+        }
+        .baseline-range {
+            position: absolute;
+            right: 40px;
+            top: 200px;
+            width: 250px;
+            border: 1px solid #000;
+        }
+        .baseline-range table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+        .baseline-range th,
+        .baseline-range td {
+            border: 1px solid #000;
+            padding: 4px 8px;
+            text-align: left;
+        }
+        .footer {
+            text-align: center;
+            font-style: italic;
+            margin-top: 40px;
+        }
+        .equation {
+            padding-left: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <div class="header-title">BUSINESS SCORECARD</div>
+        <div class="header-input">Business Name:</div>
+    </div>
+
+    <div class="vam-container">
+        <div class="vam-header">VAM</div>
+        <div class="vam-columns">
+            <div class="vam-column">COLUMN A</div>
+            <div class="vam-column">COLUMN B</div>
+        </div>
+    </div>
+
+    <div class="section-title">BASELINE VALUE</div>
+    <div class="content-grid">
+        <div>1.</div>
+        <div>Revenue</div>
+        <div class="input-pair">
+            <div class="input-box"><input type="text"></div>
+            <div class="input-box"><input type="text"></div>
+        </div>
+        <div>--></div>
+    </div>
+    <div class="content-grid">
+        <div>2.</div>
+        <div>EBITDA</div>
+        <div class="input-pair">
+            <div class="input-box"><input type="text"></div>
+            <div class="input-box"><input type="text"></div>
+        </div>
+        <div>--></div>
+    </div>
+
+    <div class="section-title">VALUE ADDERS</div>
+    <div class="content-grid">
+        <div>3.</div>
+        <div>Revenue Growth %</div>
+        <div class="input-pair">
+            <div class="input-box"><input type="text"></div>
+            <div class="input-box"><input type="text"></div>
+        </div>
+        <div>0 - 0-30% | 1 - 30-100% | 2 - 100%+</div>
+    </div>
+    <div class="content-grid">
+        <div>4.</div>
+        <div>Yrly Revenue Retention %</div>
+        <div class="input-pair">
+            <div class="input-box"><input type="text"></div>
+            <div class="input-box"><input type="text"></div>
+        </div>
+        <div>0 - < 80% | 2 - >80%</div>
+    </div>
+    <div class="content-grid">
+        <div>5.</div>
+        <div>EBITDA Margin</div>
+        <div class="input-pair">
+            <div class="input-box"><input type="text"></div>
+            <div class="input-box"><input type="text"></div>
+        </div>
+        <div>0 - (<30%) | .5 - (30%+)</div>
+    </div>
+    <div class="content-grid">
+        <div>6.</div>
+        <div>LTV:CAC Ratio</div>
+        <div class="input-pair">
+            <div class="input-box"><input type="text"></div>
+            <div class="input-box"><input type="text"></div>
+        </div>
+        <div>0 - (<10) | .5 - (>10)</div>
+    </div>
+    <div class="content-grid total-row">
+        <div>7.</div>
+        <div>TOTAL</div>
+        <div>3B + 4B + 5B + 6B --></div>
+        <div></div>
+    </div>
+
+    <div class="section-title">VALUE SUBTRACTORS</div>
+    <div class="content-grid">
+        <div>8.</div>
+        <div>Key Man Risk (Y/N)</div>
+        <div class="input-pair">
+            <div class="input-box"><input type="text"></div>
+            <div class="input-box"><input type="text"></div>
+        </div>
+        <div>Risk (3) | No Risk (0)</div>
+    </div>
+    <div class="content-grid">
+        <div>9.</div>
+        <div>Key Client Risk (Y/N)</div>
+        <div class="input-pair">
+            <div class="input-box"><input type="text"></div>
+            <div class="input-box"><input type="text"></div>
+        </div>
+        <div>Risk (2) | No Risk (0)</div>
+    </div>
+    <div class="content-grid">
+        <div>10.</div>
+        <div>Single Channel Risk (Y/N)</div>
+        <div class="input-pair">
+            <div class="input-box"><input type="text"></div>
+            <div class="input-box"><input type="text"></div>
+        </div>
+        <div>Risk (1) | No Risk (0)</div>
+    </div>
+    <div class="content-grid">
+        <div>11.</div>
+        <div>Market Risk (Y/N)</div>
+        <div class="input-pair">
+            <div class="input-box"><input type="text"></div>
+            <div class="input-box"><input type="text"></div>
+        </div>
+        <div>Risk (1) | No Risk (0)</div>
+    </div>
+    <div class="content-grid">
+        <div>12.</div>
+        <div>Data (Y/N)</div>
+        <div class="input-pair">
+            <div class="input-box"><input type="text"></div>
+            <div class="input-box"><input type="text"></div>
+        </div>
+        <div>Risk (1) | No Risk (0)</div>
+    </div>
+    <div class="content-grid total-row">
+        <div>13.</div>
+        <div>TOTAL</div>
+        <div>8B+9B+10B+11B+12B --></div>
+        <div></div>
+    </div>
+
+    <div class="section-title">VALUATION</div>
+    <div class="content-grid">
+        <div>14.</div>
+        <div>STEP 3: Adjusted Valuation Multiple</div>
+        <div class="input-box" style="width: 50%"><input type="text"></div>
+        <div class="equation">= 2B + 7B - 13B</div>
+    </div>
+    <div class="content-grid">
+        <div>15.</div>
+        <div>STEP 4: Current Enterprise Value</div>
+        <div class="input-box" style="width: 50%"><input type="text"></div>
+        <div class="equation">= 2A * 14B</div>
+    </div>
+
+    <div class="baseline-range">
+        <div style="padding: 8px;">Baseline Range (for 2B)</div>
+        <table>
+            <tr>
+                <th>EBITDA $</th>
+                <th>EBITDA Mult.</th>
+            </tr>
+            <tr><td>&lt;$1M</td><td>1</td></tr>
+            <tr><td>$1M-$3M</td><td>2.5</td></tr>
+            <tr><td>$5M-10M</td><td>5</td></tr>
+            <tr><td>$10M+</td><td>6</td></tr>
+        </table>
+    </div>
+
+    <div class="footer">*This is for illustration purposes only*</div>
+</body>
+</html>
